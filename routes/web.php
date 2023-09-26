@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    // fetch all users 
+    $users = DB::table('users')->find(1);
+    // create new user
+    // $user = DB::table('users')->insert([
+    // 'name' => 'Joshteamgifted',
+    // 'email' => 'primexchange46@gmail.com',
+    // 'password' => 'password',
+    // ]);
+    // ]);
+    //update user
+    // $user = DB::table('users')
+    //           ->where('id', 3)
+    //           ->delete();
+    //delete users
+    // $user = DB::delete('delete from users where id=2');
+
+    dd($users);
 });
 
 Route::get('/dashboard', function () {
