@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +17,22 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     // return view('welcome');
-    // fetch all users 
-    $users = DB::table('users')->find(1);
+    // fetch all users
+    // $user = DB::table('users')->find(1);
     // create new user
-    // $user = DB::table('users')->insert([
-    // 'name' => 'Joshteamgifted',
-    // 'email' => 'primexchange46@gmail.com',
-    // 'password' => 'password',
-    // ]);
+    $user = User::create([
+            'name' => 'Ojoro',
+            'email' => 'ojoro@gmail.com',
+            'password' => 'onionbooty',
+    ]);
     // ]);
     //update user
-    // $user = DB::table('users')
-    //           ->where('id', 3)
-    //           ->delete();
+    // $users = User::find(1);
+
     //delete users
     // $user = DB::delete('delete from users where id=2');
 
-    dd($users);
+    dd($user);
 });
 
 Route::get('/dashboard', function () {
